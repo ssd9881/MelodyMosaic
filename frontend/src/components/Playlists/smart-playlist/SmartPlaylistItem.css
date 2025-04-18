@@ -1,0 +1,138 @@
+.smart-playlist-wrapper {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+    box-shadow: 0 0 20px #1DB95433;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    color: #e0ffe0;
+    align-items: flex-start;
+}
+
+.smart-playlist-section {
+    flex: 1 1 35%;
+    min-width: 250px;
+}
+
+.smart-playlist-section h4 {
+    color: #b2f0b2;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 0 0 6px #1DB95455;
+}
+
+/* SmallPlaylistCard style assumed */
+.playlist-card {
+    background-color: #121212;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 0 12px #1DB95433;
+    border: 1px solid #1DB95455;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.playlist-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px #1ED76066;
+}
+
+.playlist-card img {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px #1db95455;
+}
+
+.playlist-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.playlist-info .playlist-name {
+    font-weight: 600;
+    color: #1DB954;
+    text-shadow: 0 0 6px #1DB95499;
+}
+
+.playlist-info .playlist-author {
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+/* Children playlists in grid */
+.smart-playlist-section .row {
+    margin: 0;
+    gap: 12px;
+}
+
+.smart-playlist-section .col {
+    padding: 0;
+}
+
+/* Children card single column fix */
+.playlist-card.vertical {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12px;
+}
+
+.smart-playlist-actions {
+    flex: 1 1 20%;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+    justify-content: start;
+}
+
+.smart-playlist-actions button {
+    background-color: #121212;
+    color: #1DB954;
+    border: 1px solid #1DB95488;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px #1DB95433;
+    width: 100%;
+    text-align: center;
+}
+
+.smart-playlist-actions button:hover {
+    border-color: #1ED760;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 12px #1ED76088;
+}
+
+.smart-playlist-actions label {
+    color: #1ED760;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.smart-playlist-actions input[type="checkbox"] {
+    accent-color: #1DB954;
+    transform: scale(1.1);
+}
+
+.playlist-card.vertical {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12px;
+}

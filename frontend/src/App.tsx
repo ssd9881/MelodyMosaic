@@ -7,6 +7,8 @@ import {
 import Login from './routes/Login'
 import Callback from './routes/Callback'
 import Dashboard from './routes/Dashboard'
+import AlbumDashboard from './routes/AlbumDashboard'
+import PlaylistDashboard from './routes/PlaylistDashboard'
 import TopNavBar from './components/TopNavBar'
 import Sidebar from './components/Sidebar'
 import { AlbumProvider } from './contexts/AlbumContext'
@@ -30,6 +32,8 @@ function App() {
                   <Route path='/' element={<Login />} />
                   <Route path='callback' element={<Callback />} />
                   <Route path='/dashboard' element={<Dashboard />} />
+                  <Route path='/dashboard/album' element={<AlbumDashboard />} />
+                  <Route path='dashboard/playlist' element={<PlaylistDashboard />} />
                 </Routes>
                 </AuthWrapper>
               </div>

@@ -5,6 +5,9 @@ import User, { UserData } from '../Classes/User';
 import Album, { AlbumDisplay } from '../Classes/Album';
 import { plainToInstance } from 'class-transformer';
 
+const backendURL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+console.log("Backend URL being used:", backendURL);
+
 const backendClient = axios.create({
     baseURL: import.meta.env.VITE_BACKEND_URL,
     withCredentials: true,
@@ -15,7 +18,7 @@ const backendClient = axios.create({
 
 backendClient.interceptors.response.use(response => response,
     error => {
-        alert(`Backend Request failed: ${error.response?.status} - ${error.message}. If this error persists please contact the MyMusic team. Logging back in may resolve your issue. Ensure cookies are enabled.`);
+        alert(`Backend Request failed: ${error.response?.status} - ${error.message}. If this error persists please contact the MelodyMosaic team. Logging back in may resolve your issue. Ensure cookies are enabled.`);
         return Promise.reject(error);
     }
 );
@@ -35,9 +38,19 @@ async function backendDelete(endpoint: string, options: AxiosRequestConfig = {})
     return response.data;
 }
 
+export async function fetchTopTracks(artistId: string, accessToken: string) {
+    const response = await axios.get(`${backendURL}/spotify/top-tracks/${artistId}`, {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        },
+        withCredentials: true
+    });
+    return response.data.tracks;
+}
+
 // Specific API calls
 export async function updateUser(user: User): Promise<any> {
-    return backendPost('/user', user);
+    return backendPost('/api/user', user);
 }
 
 export async function getUser(): Promise<UserData> {
@@ -46,11 +59,12 @@ export async function getUser(): Promise<UserData> {
 }
 
 export async function updateAlbums(albumsData: Album[], removeUnfound: boolean) {
-    return backendPost('/albums', { albums: albumsData, remove_not_found_albums: removeUnfound });
+    console.log("Backend_api_handler.ts Calling updateAlbums...");
+    return backendPost('api/albums', { albums: albumsData, remove_not_found_albums: removeUnfound });
 }
 
 export async function getAlbums(): Promise<AlbumDisplay[]> {
-    return backendGet("/albums");
+    return backendGet("api/albums");
 }
 
 export async function updatePlaylists(playlistsData: Playlist[], removeUnfound: boolean): Promise<any> {
@@ -62,17 +76,17 @@ export async function getPlaylists(): Promise<PlaylistDisplay[]> {
 }
 
 export async function addSmartPlaylist(smartPlaylistData: SmartPlaylistData): Promise<any> {
-    return backendPost('/smart_playlists', smartPlaylistData);
+    return backendPost('api/smart_playlists', smartPlaylistData);
 }
 
 export async function getSmartPlaylists(): Promise<SmartPlaylist[]> {
-    return backendGet('/smart_playlists');
+    return backendGet('smart_playlists');
 }
 
 export async function syncSmartPlaylistData(smartPlaylistSyncData: SmartPlaylistSyncData): Promise<any> {
-    return backendPost('/smart_playlists/sync', smartPlaylistSyncData);
+    return backendPost('smart_playlists/sync', smartPlaylistSyncData);
 }
 
 export async function deleteSmartPlaylist(smartPlaylistId: string): Promise<any> {
-    return backendDelete(`/smart_playlists/${smartPlaylistId}`);
+    return backendDelete(`api/smart_playlists/${smartPlaylistId}`);
 }

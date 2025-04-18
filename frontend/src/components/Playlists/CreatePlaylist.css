@@ -1,0 +1,90 @@
+/* The modal's backdrop */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Make sure it's above other content */
+}
+
+.custom-close {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.custom-modal {
+  background: #fff; /* Use a soft white or other light color that matches your theme */
+  padding: 30px; /* Increase padding for better spacing */
+  border-radius: 8px; /* Soften the corners */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* A more subtle shadow */
+  z-index: 1051;
+  width: 25%;
+  animation: fadeIn 0.3s; /* Animation for modal entry */
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-modal-content {
+  position: relative;
+}
+
+
+/* Form styles */
+.custom-modal-content form {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.custom-modal-content label {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333; /* Or any color that fits your theme */
+}
+
+.custom-modal-content input[type="text"],
+.custom-modal-content textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc; /* A softer border */
+  border-radius: 4px; /* Slightly rounded corners */
+  width: 90%;
+}
+
+.custom-modal-content input[type="radio"] {
+  margin-right: 5px;
+}
+
+.custom-modal-content .radio-label {
+  display: inline-block;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.custom-modal-content button[type="submit"] {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #1DB954; /* A pleasant green, or choose your own color */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.custom-modal-content button[type="submit"]:hover {
+  background-color: #179443; /* A slightly darker green for the hover state */
+}

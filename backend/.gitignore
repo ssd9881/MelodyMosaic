@@ -1,0 +1,11 @@
+# Virtual Environment
+.venv
+
+# Env File
+.env
+
+# Py Cache
+__pycache__
+
+# instance
+instance/

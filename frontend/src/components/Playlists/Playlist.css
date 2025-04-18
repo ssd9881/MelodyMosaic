@@ -1,0 +1,175 @@
+.playlist-dashboard {
+    .dashboard-content {
+        text-align: left;
+    }
+
+    .title {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 10px;
+        width: fit-content;
+        border-radius: 5px;
+        border: 2px solid #1DB95499;
+        color: #1DB954;
+        font-weight: bold;
+        text-shadow: 0 0 8px #1DB95466;
+        box-shadow: 0 0 10px #1db95433;
+    }
+
+    .child-container {
+        .card-img {
+            width: 100%;
+            max-width: 100px;
+            height: auto;
+            margin-top: 5px;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #1DB95455;
+        }
+
+        .card {
+            box-sizing: border-box;
+            text-align: left;
+            padding: 10px;
+            min-height: 125px;
+            max-height: 200px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background-color: #1a1a1a;
+            border: 1px solid #1DB95433;
+            border-radius: 10px;
+            box-shadow: 0 0 12px #1DB95422;
+            color: #e0ffe0;
+        }
+
+        .card-body {
+            padding: 5px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .card-title {
+            font-size: 0.9rem;
+            color: #1DB954;
+            text-shadow: 0 0 6px #1DB95444;
+        }
+
+        .card-text {
+            margin-bottom: 5px;
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        .card-img-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .overlay-checkmark {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Green-checkmark.svg/1200px-Green-checkmark.svg.png');
+            background-color: rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 100px;
+            height: auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 50px;
+            border-radius: 8px;
+        }
+
+        .form-check {
+            display: none;
+        }
+
+        label {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+    }
+
+    .playlist-card {
+        img {
+            padding-top: 5px;
+            width: 100%;
+            max-width: 75px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 0 8px #1db95488;
+        }
+
+        padding: 10px;
+        text-align: left;
+        font-size: 0.9rem;
+        background-color: #1b1b1b;
+        color: #fff;
+        border-left: 3px solid #1DB95488;
+    }
+
+    .smart-playlist-card {
+        flex-direction: inherit;
+
+        .sync {
+            padding-top: 20px;
+            color: #1DB954;
+        }
+    }
+
+    .track-img {
+        width: 100%;
+        max-width: 75px;
+        border-radius: 6px;
+        box-shadow: 0 0 8px #1db95455;
+    }
+
+    .btn-link {
+        font-size: 0.8em;
+        padding: 0;
+        text-decoration: underline;
+        color: #1DB954;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-shadow: 0 0 6px #1db95455;
+    }
+
+    .btn-link:hover {
+        color: #1ED760;
+        text-shadow: 0 0 10px #1ED760aa;
+    }
+}
+
+select,
+.dropdown,
+select.form-select {
+    background-color: #1a1a1a;
+    color: #1DB954;
+    border: 1px solid #1DB95488;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 0 8px #1DB95433;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='292.362' height='292.362'%3E%3Cpath fill='%231DB954' d='M287 69.245l-20.18-20.18L146.18 169.704 25.18 49.065 5 69.245 146.18 210.426z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+select:focus,
+.dropdown:focus,
+select.form-select:focus {
+    outline: none;
+    border-color: #1ED760;
+    box-shadow: 0 0 10px #1ED760aa;
+}
+
+option {
+    background-color: #121212;
+    color: #e0ffe0;
+}

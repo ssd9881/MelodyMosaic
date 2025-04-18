@@ -4,6 +4,7 @@ import { getLikedAlbums, getPlaylists } from "./spotify_api_handler";
 const AUTO_SYNC_TIME = 1000 * 60 * 60 * 24 * 2; // 2 days
 
 export async function syncAlbumsWithBackend() {
+    console.log("Calling updateAlbums...");
     return getLikedAlbums().then((albums) => updateAlbums(albums, true));
 }
 

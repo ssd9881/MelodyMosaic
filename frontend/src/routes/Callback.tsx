@@ -11,6 +11,7 @@ function Callback() {
     useEffect(() => {
         if (tokenProcessed) {
             getUserInfo().then((user) => {
+                console.log("User",user);
                 localStorage.setItem("user", JSON.stringify(user));
                 navigate("/dashboard");
                 updateUser(user).then(() => console.log("User updated in Backend"));
@@ -25,6 +26,7 @@ function Callback() {
                     .then(() => {
                         getUserInfo().then((user) => {
                             localStorage.setItem("user", JSON.stringify(user));
+                            console.log("user in frontend",user);
                             navigate("/dashboard");
                             updateUser(user).then(() => console.log("User updated in Backend"));
                         });

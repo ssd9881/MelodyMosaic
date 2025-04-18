@@ -2,7 +2,9 @@ import axios from "axios";
 
 const CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
 const SCOPE = import.meta.env.VITE_SPOTIFY_SCOPE;
-const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI;
+const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI || 'http://localhost:5173/callback';
+;
+
 
 const authorizationEndpoint = "https://accounts.spotify.com/authorize";
 const tokenEndpoint = "https://accounts.spotify.com/api/token";
@@ -58,6 +60,8 @@ export async function getAccessToken(code: string) {
 
         const response = await axios.post(tokenEndpoint, params);
         const { access_token, refresh_token } = response.data;
+        console.log('Access Token:', access_token);
+        console.log('Refresh Token:', refresh_token);
         localStorage.setItem("access_token", access_token);
         localStorage.setItem("refresh_token", refresh_token);
         localStorage.setItem("token_timestamp", new Date().toISOString());
@@ -71,13 +75,17 @@ export async function getAccessToken(code: string) {
 
 export async function refreshAccessToken() {
   try {
+    
       const response = await axios.post(tokenEndpoint, new URLSearchParams({
             client_id: CLIENT_ID,
+            client_secret: "43dc336625d54a48b52fbf2e35beb20c",
             grant_type: 'refresh_token',
             refresh_token: localStorage.getItem('refresh_token')!,
       }));
 
         const { access_token, refresh_token } = response.data;
+        console.log('Access Token:', access_token);
+        console.log('Refresh Token:', refresh_token);
         localStorage.setItem("access_token", access_token);
         localStorage.setItem("refresh_token", refresh_token);
         localStorage.setItem("token_timestamp", new Date().toISOString());
